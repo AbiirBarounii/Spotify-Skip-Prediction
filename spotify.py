@@ -16,7 +16,7 @@ st.write(
 
 image = Image.open('./images/spotify_image.png')
 
-st.image(image, caption='Sunrise by the mountains')
+st.image(image, caption='Songs are personal')
 
 
 with st.container():
@@ -50,7 +50,6 @@ def model_pred(context_switch, no_pause_before_play,premium,hist_user_behavior_i
         model = pickle.load(file)
     
     input_filters = [[context_switch,no_pause_before_play,0,0,0,0,hist_user_behavior_is_shuffle,premium,context_type,hist_user_behavior_reason_start,hist_user_behavior_reason_end]]
-    #input_filters =  [[0,0,1,1,0,0,0,1,4,1,3]]
 
     return model.predict(input_filters)
 
