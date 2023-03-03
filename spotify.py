@@ -46,7 +46,7 @@ encode_dict = {
 
 def model_pred(context_switch, no_pause_before_play,premium,hist_user_behavior_is_shuffle,context_type,hist_user_behavior_reason_start,hist_user_behavior_reason_end):
     
-    with open('model_pkl',"rb") as file:
+    with open('./models/model_pkl',"rb") as file:
         model = pickle.load(file)
     
     input_filters = [[context_switch,no_pause_before_play,0,0,0,0,hist_user_behavior_is_shuffle,premium,context_type,hist_user_behavior_reason_start,hist_user_behavior_reason_end]]
