@@ -2,7 +2,7 @@
 
 Problem Statemnet: Predict if users will skip or listen to the music they're streamed
 
-## Dashboard
+## Dashboard (Streamlit App)
 ![alt text](./images/Screenshot%202023-03-04%20at%2012.33.32%20AM.png)
 
 ## Overview
