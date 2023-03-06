@@ -43,7 +43,7 @@ def eda():
     #st.image(image, channels="BGR")
 
 def prediction():
-    status = '' # Initialize the status variable
+    status = 'Click on Predict Skip' # Initialize the status variable
 
     # Write the title and subtitle
     st.write(""" # :telescope: Spotify Skip Prediction """)
@@ -130,7 +130,7 @@ def prediction():
             else:
                 status = 'Song is played'
             
-    st.subheader(':guitar: The Status of the Track > ' + str(status))
+    st.write('### The Status of the Track :fast_forward: ' + str(status))
 
 
 # Define the pages in a dictionary
