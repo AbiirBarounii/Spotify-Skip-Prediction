@@ -4,7 +4,7 @@ Problem Statemnet: Predict if users will skip or listen to the music they're str
 
 ## Dashboard (Streamlit App)
 #### Link: https://anidec25-spotify-skip-prediction-spotify-2xr81h.streamlit.app/
-![alt text](./images/Screenshot%202023-03-04%20at%2012.33.32%20AM.png)
+![Alt text](../../../Desktop/Screenshot%202023-03-07%20at%2012.00.15%20AM.png)
 
 ## Overview
 Spotify is an online music streaming service with over 190 million active users interacting with a library of over 40 million tracks. A central challenge for Spotify is to recommend the right music to each user. While there is a large related body of work on recommender systems, there is very little work, or data, describing how users sequentially interact with the streamed content they are presented with. In particular within music, the question of if, and when, a user skips a track is an important implicit feedback signal.

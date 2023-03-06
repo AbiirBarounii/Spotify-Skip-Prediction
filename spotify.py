@@ -7,10 +7,10 @@ from PIL import Image
 
 def home():
 
-    st.title("Home Page")
-    st.write("This is the home page.")
+    st.write("# :house: Home Page")
+    st.write("#### This is the home page.")
 
-    st.subheader('Overiew')
+    st.subheader(':pushpin: Overiew')
     st.write(
     """
     Spotify is an online music streaming service with over 190 million active users interacting with a library of over 40 million tracks. A central challenge for Spotify is to recommend the right music to each user. While there is a large related body of work on recommender systems, there is very little work, or data, describing how users sequentially interact with the streamed content they are presented with. In particular within music, the question of if, and when, a user skips a track is an important implicit feedback signal.
@@ -18,7 +18,7 @@ def home():
     """
     )
 
-    st.subheader('Dataset')
+    st.subheader(':pushpin: Dataset')
     st.write(
     """
     The public part of the dataset consists of roughly 130 million listening sessions with associated user interactions on the Spotify service. In addition to the public part of the dataset, approximately 30 million listening sessions are used for the challenge leaderboard. For these leaderboard sessions the participant is provided all the user interaction features for the first half of the session, but only the track id’s for the second half. In total, users interacted with almost 4 million tracks during these sessions, and the dataset includes acoustic features and metadata for all of these tracks.
@@ -26,7 +26,7 @@ def home():
     """
     )
 
-    st.subheader('Challenge')
+    st.subheader(':pushpin: Challenge')
     st.write(
     """
     The task is to predict whether individual tracks encountered in a listening session will be skipped by a particular user. In order to do this, complete information about the first half of a user’s listening session is provided, while the prediction is to be carried out on the second half. Participants have access to metadata, as well as acoustic descriptors, for all the tracks encountered in listening sessions.
@@ -35,8 +35,8 @@ def home():
     )
     
 def eda():
-    st.title("Exploratory Data Analysis")
-    st.write("This is the EDA page.")
+    st.write("# :closed_book: Exploratory Data Analysis")
+    st.write("## This is the EDA page.")
 
     original_title = '<p style="font-family:Roboto; color:white; font-size: 25px;">Original image</p>'
     st.markdown(original_title, unsafe_allow_html=True)
@@ -46,9 +46,7 @@ def prediction():
     status = '' # Initialize the status variable
 
     # Write the title and subtitle
-    st.write("""
-            # Spotify Sequential Skip Prediction
-            """)
+    st.write(""" # :telescope: Spotify Skip Prediction """)
     
     # Load and display the image
     image = Image.open('./images/spotify_image.png')
@@ -132,7 +130,7 @@ def prediction():
             else:
                 status = 'Song is played'
             
-            st.subheader(str(status))
+    st.subheader(':guitar: The Status of the Track > ' + str(status))
 
 
 # Define the pages in a dictionary
