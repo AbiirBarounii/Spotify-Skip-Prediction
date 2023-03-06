@@ -46,7 +46,7 @@ def prediction():
     status = 'Click on Predict Skip' # Initialize the status variable
 
     # Write the title and subtitle
-    st.write(""" # :telescope: Spotify Skip Prediction """)
+    st.write(""" # :telescope: Spotify Track Skip Prediction """)
     
     # Load and display the image
     image = Image.open('./images/spotify_image.png')
@@ -156,7 +156,7 @@ default_page = "Home"
 # Define the sidebar
 image = Image.open('./images/logo.png')
 st.sidebar.image(image,width=200,use_column_width=False)
-st.sidebar.title("Spotify Squential Skip Prediction")
+st.sidebar.title("Spotify Track Skip Prediction")
 
 #Sidebar selection
 selection = st.sidebar.radio("Go to", list(pages.keys()), index=list(pages.keys()).index(default_page))
