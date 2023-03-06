@@ -136,7 +136,7 @@ def prediction():
 # Define the pages in a dictionary
 pages = {
     "Home": home,
-    "EDA": eda,
+    "Data Analysis": eda,
     "Prediction": prediction
 }
 
