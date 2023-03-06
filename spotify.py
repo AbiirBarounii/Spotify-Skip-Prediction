@@ -16,7 +16,7 @@ st.write(
 
 image = Image.open('./images/spotify_image.png')
 
-st.image(image, caption='Songs are personal')
+st.image(image, caption='Music is personal')
 
 
 with st.container():
