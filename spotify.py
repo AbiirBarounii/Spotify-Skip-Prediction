@@ -153,6 +153,13 @@ layout="centered"
 # Set the default page
 default_page = "Home"
 
+st.markdown(f'''
+    <style>
+        section[data-testid="stSidebar"] .css-ng1t4o {{width: 14rem;}}
+        section[data-testid="stSidebar"] .css-1d391kg {{width: 14rem;}}
+    </style>
+''',unsafe_allow_html=True)
+
 # Define the sidebar
 image = Image.open('./images/logo.png')
 st.sidebar.image(image,width=80,use_column_width=False)
