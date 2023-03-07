@@ -155,7 +155,7 @@ default_page = "Home"
 
 # Define the sidebar
 image = Image.open('./images/logo.png')
-st.sidebar.image(image,width=200,use_column_width=False)
+st.sidebar.image(image,width=210,use_column_width=False)
 st.sidebar.title("""Spotify Track Skip Prediction""")
 
 #Sidebar selection
