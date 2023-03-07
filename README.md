@@ -2,8 +2,7 @@
 
 Problem Statemnet: Predict if users will skip or listen to the music they're streamed
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/anidec25/Spotify-Skip-Prediction"> <img alt="GitHub watchers" src="https://img.shields.io/github/watchers/anidec25/Spotify-Skip-Prediction"> <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/anidec25/Spotify-Skip-Prediction">
+<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/anidec25/Spotify-Skip-Prediction"> <img alt="GitHub watchers" src="https://img.shields.io/github/watchers/anidec25/Spotify-Skip-Prediction"> <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/anidec25/Spotify-Skip-Prediction"> <img alt="GitHub forks" src="https://img.shields.io/github/forks/anidec25/Spotify-Skip-Prediction"> 
 
 
 ## Dashboard (Streamlit App)
