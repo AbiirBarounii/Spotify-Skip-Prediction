@@ -1,9 +1,16 @@
 import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
 import datetime
 import pickle
 import streamlit as st
+import warnings
+warnings.filterwarnings('ignore')
 from PIL import Image
 
+
+# All Page Functions: 
 
 def home():
 
@@ -35,12 +42,48 @@ def home():
     )
     
 def eda():
-    st.write("# :closed_book: Exploratory Data Analysis")
-    st.write("## This is the EDA page.")
 
-    original_title = '<p style="font-family:Roboto; color:white; font-size: 25px;">Original image</p>'
-    st.markdown(original_title, unsafe_allow_html=True)
-    #st.image(image, channels="BGR")
+    # Define a function to plot countplot
+    def plot_countplot(df, col_name, hue=None):
+        """ To plot bargraph to get the count of each score feature"""
+        custom_palette = sns.color_palette(['#262730', '#1bd760'])
+        plt.figure(figsize=(8, 4))
+        plt.title(f'Datapoint distribution of {col_name}')
+        sns.countplot(x=col_name, hue=hue, data=df, palette=custom_palette)
+        st.pyplot()
+
+    # Set the title and introduction of the Streamlit page
+    st.write("# :closed_book: Exploratory Data Analysis")
+    st.write("## Dataset (Simplified View)")
+
+    # Load the data and display it
+    df = pd.read_csv('./data/model.csv')
+    st.write(df.head(10))
+    st.text("")
+
+    # Set the configuration to not show deprecation warning for global use of pyplot
+    st.set_option('deprecation.showPyplotGlobalUse', False)
+
+    # Display the section for data visualization
+    st.write("## Data Visualization")
+
+    # Define the columns to plot countplots for
+    cols = ['context_switch', 'context_type',
+            'short_pause_before_play', 'long_pause_before_play',
+            'hist_user_behavior_n_seekfwd', 'hist_user_behavior_n_seekback',
+            'hist_user_behavior_is_shuffle', 'premium',
+            'no_pause_before_play', 'hist_user_behavior_reason_start',
+            'hist_user_behavior_reason_end']
+    
+    # Divide the page into 10 columns
+    for i, col in enumerate(cols):
+        if i % 2 == 0:
+            col_left, col_right = st.columns(2)
+            with col_left:
+                plot_countplot(df, col, hue=df['target'])
+            with col_right:
+                if i+1 < len(cols):
+                    plot_countplot(df, cols[i+1], hue=df['target'])
 
 def prediction():
     status = 'Click on Predict Skip' # Initialize the status variable
@@ -49,7 +92,7 @@ def prediction():
     st.write(""" # :telescope: Spotify Track Skip Prediction """)
     
     # Load and display the image
-    image = Image.open('./images/spotify_image.png')
+    image = Image.open('./images/Spotify_Logo_RGB_Green.png')
     st.image(image, caption='Music is personal')
     
     # Use st.container() to divide the page into three columns
@@ -133,6 +176,11 @@ def prediction():
     st.write('### The Status of the Track :fast_forward: ' + str(status))
 
 
+
+
+
+# Driver Code:
+
 # Define the pages in a dictionary
 pages = {
     "Home": home,
@@ -147,14 +195,14 @@ page_icon = Image.open('./images/page_icon_spotify.png')
 st.set_page_config(
 page_title="Spotify Skip Prediction",
 page_icon=page_icon,
-layout="centered"
+layout="wide"
 )
 
 # Set the default page
 default_page = "Home"
 
 # Define the sidebar
-image = Image.open('./images/logo.png')
+image = Image.open('./images/Spotify_Logo_RGB_Green.png')
 st.sidebar.image(image,width=210,use_column_width=False)
 st.sidebar.title("""Spotify Track Skip Prediction""")
 
