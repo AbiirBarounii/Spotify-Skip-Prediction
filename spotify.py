@@ -2,8 +2,8 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-import datetime
 import pickle
+import webbrowser
 import streamlit as st
 import warnings
 warnings.filterwarnings('ignore')
@@ -11,7 +11,6 @@ from PIL import Image
 
 
 # All Page Functions: 
-
 def home():
 
     st.write("# :house: Home Page")
@@ -177,8 +176,6 @@ def prediction():
 
 
 
-
-
 # Driver Code:
 
 # Define the pages in a dictionary
@@ -208,6 +205,13 @@ st.sidebar.title("""Spotify Track Skip Prediction""")
 
 #Sidebar selection
 selection = st.sidebar.radio("Go to", list(pages.keys()), index=list(pages.keys()).index(default_page))
+st.sidebar.text("")
+
+url = 'https://www.linkedin.com/in/aniruddha95/'
+if st.sidebar.button('Get in touch'):
+    webbrowser.open_new_tab(url)
+
+
 
 # Display the selected page with the corresponding function
 pages[selection]()
