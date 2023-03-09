@@ -68,10 +68,9 @@ def eda():
 
     # Define the columns to plot countplots for
     cols = ['context_switch', 'context_type',
-            'short_pause_before_play', 'long_pause_before_play',
+            'no_pause_before_play', 'long_pause_before_play',
             'hist_user_behavior_n_seekfwd', 'hist_user_behavior_n_seekback',
-            'hist_user_behavior_is_shuffle', 'premium',
-            'no_pause_before_play', 'hist_user_behavior_reason_start',
+            'hist_user_behavior_is_shuffle', 'premium', 'hist_user_behavior_reason_start',
             'hist_user_behavior_reason_end']
     
     # Divide the page into 10 columns
