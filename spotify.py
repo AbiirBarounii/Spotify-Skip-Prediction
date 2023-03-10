@@ -93,7 +93,7 @@ def prediction():
     # Load and display the image
     image = Image.open('./images/Spotify_Logo_RGB_Green.png')
 
-    col1, col2, col3 = st.columns([0.4,1,0.1])
+    col1, col2, col3 = st.columns([1,1,1])
     with col1:
         st.write('')
 
@@ -113,11 +113,13 @@ def prediction():
 
         # Create dropdown menus for different user actions
         hist_user_behavior_reason_start = col1.selectbox('User action: Pre Track Play',
-                                                         ['trackdone','fwdbtn','backbtn','clickrow','appload',
-                                                          'playbtn','remote','trackerror','endplay'])
+                                                         ['Track Over','Forward Button Pressed','Back Button Pressed',
+                                                 'Clicked from Home Page','App Recommendation','Pressed Play Button',
+                                                  'Remote', 'Track error', 'Pressed endplay'])
         hist_user_behavior_reason_end = col1.selectbox('User action: Post Track Play',
-                                                       ['trackdone', 'fwdbtn', 'backbtn', 'endplay', 'logout',
-                                                        'remote', 'clickrow'])
+                                                        ['Track Over','Forward Button Pressed','Back Button Pressed', 'User ended play','Logout'
+                                                 'Remote','Clicked from Home Page'])
+
         
         # Create a dropdown menu for the number of pauses before playing a song
         no_pause_before_play = col1.selectbox('Set the number of pauses before play',
@@ -135,16 +137,28 @@ def prediction():
         
         # Create a dropdown menu for the type of context
         context_type = col3.selectbox('Status of Context Type',
-                                      ['user_collection', 'catalog','editorial_playlist','radio',
-                                       'personalized_playlist','charts'])
+                                      ['User Collection', 'Catalog','Education playlist','Radio',
+                                       'Personal playlist','Top charts'])
         
         # Create a dictionary to encode the dropdown menu values for use in the model
         encode_dict = {
             'premium' : {'Premium': 1 , 'Freemium': 0},
+
             'context_switch': {'Yes': 1, 'No': 0},
+
             'hist_user_behavior_is_shuffle' : {'Shuffle Mode On': 1, 'Shuffle Mode Off': 0},
-            'context_type' : {'user_collection': 5, 'catalog':0 ,'editorial_playlist':2 ,
-                            'radio':4 , 'personalized_playlist':3,  'charts':1}
+
+            'context_type' : {'User Collection':'user_collection', 'Catalog':'catalog','Education playlist': 'editorial_playlist',
+                            'Radio':'radio', 'Personal playlist':'personalized_playlist','Top charts':'charts'},
+
+            'hist_user_behavior_reason_start' : {'Track Over': 'trackdone', 'Forward Button Pressed': 'fwdbtn','Back Button Pressed': 'backbtn',
+                                                 'Clicked from Home Page' : 'clickrow', 'App Recommendation': 'appload', 'Pressed Play Button': 'playbtn',
+                                                  'Remote': 'remote', 'Track error': 'trackerror', 'Pressed endplay': 'endplay'},
+
+            'hist_user_behavior_reason_end' : {'Track Over': 'trackdone', 'Forward Button Pressed': 'fwdbtn','Back Button Pressed': 'backbtn',
+                                                 'User ended play':'endplay','Logout':'logout','Clicked from Home Page' : 'clickrow', 'App Recommendation': 'appload', 'Pressed Play Button': 'playbtn',
+                                                  'Remote': 'remote', 'Track error': 'trackerror', 'Pressed endplay': 'endplay'}
+
         }
 
     # Define the function to load and use the model for prediction
@@ -160,19 +174,23 @@ def prediction():
         return model.predict(input_filters)
 
     # Divide the page into five columns, leaving the third column blank for the button
-    col1, col2, col3 = st.columns([0.3,1,1.6])
+    col1, col2, col3 = st.columns([1,0.3,1])
 
     with col1:
         pass
-    with col2:
+    with col3:
         pass
-    with col3 :
+    with col2:
         if st.button("Predict Skip"):
 
             hist_user_behavior_is_shuffle = encode_dict['hist_user_behavior_is_shuffle'][hist_user_behavior_is_shuffle]
             premium = encode_dict['premium'][premium]
             context_switch = encode_dict['context_switch'][context_switch]
             context_type = encode_dict['context_type'][context_type]
+            hist_user_behavior_reason_start = encode_dict['hist_user_behavior_reason_start'][hist_user_behavior_reason_start]
+            hist_user_behavior_reason_end = encode_dict['hist_user_behavior_reason_end'][hist_user_behavior_reason_end]
+
+
 
             skip = model_pred(context_switch, no_pause_before_play,premium,hist_user_behavior_is_shuffle,context_type,hist_user_behavior_reason_start,hist_user_behavior_reason_end)
 
