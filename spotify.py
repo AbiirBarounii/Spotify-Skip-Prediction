@@ -88,10 +88,24 @@ def prediction():
 
     # Write the title and subtitle
     st.write(""" # :telescope: Spotify Track Skip Prediction """)
+
     
     # Load and display the image
     image = Image.open('./images/Spotify_Logo_RGB_Green.png')
-    st.image(image, caption='Music is personal')
+
+    col1, col2, col3 = st.columns([0.4,1,0.1])
+    with col1:
+        st.write('')
+
+    with col2:
+        new_image = image.resize((680, 200))
+        st.image(new_image,caption='Music is personal')
+
+    with col3:
+        st.write('')
+    
+
+    # st.image(image, caption='Music is personal')
     
     # Use st.container() to divide the page into three columns
     with st.container():
@@ -146,15 +160,11 @@ def prediction():
         return model.predict(input_filters)
 
     # Divide the page into five columns, leaving the third column blank for the button
-    col1, col2, col3 , col4, col5 = st.columns(5)
+    col1, col2, col3 = st.columns([0.3,1,1.6])
 
     with col1:
         pass
     with col2:
-        pass
-    with col4:
-        pass
-    with col5:
         pass
     with col3 :
         if st.button("Predict Skip"):
@@ -170,10 +180,18 @@ def prediction():
                 status = 'Song is Skipped'
             else:
                 status = 'Song is played'
+
+
+    col1, col2, col3 = st.columns([0.1,0.5,0.9])
+
+    with col1:
+        pass
+    with col2:
+        pass
+    with col3 :
+        st.write('### Status: ' + str(status))
             
-    st.write('### The Status of the Track :fast_forward: ' + str(status))
-
-
+    
 
 # Driver Code:
 
