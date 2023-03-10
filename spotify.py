@@ -84,7 +84,7 @@ def eda():
                     plot_countplot(df, cols[i+1], hue=df['target'])
 
 def prediction():
-    status = 'Click on Predict Skip' # Initialize the status variable
+    status = '"Click on Predict Skip"' # Initialize the status variable
 
     # Write the title and subtitle
     st.write(""" # :telescope: Spotify Track Skip Prediction """)
