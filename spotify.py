@@ -182,14 +182,8 @@ def prediction():
                 status = 'Song is played'
 
 
-    col1, col2, col3 = st.columns([0.1,0.5,0.9])
 
-    with col1:
-        pass
-    with col2:
-        pass
-    with col3 :
-        st.write('### Status: ' + str(status))
+    st.write('### Status of the Track:fast_forward: ' + str(status))
             
     
 
