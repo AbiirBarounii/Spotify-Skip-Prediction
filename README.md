@@ -7,13 +7,13 @@ Problem Statemnet: Predict if users will skip or listen to the music they're str
 ## Steps to run the script in your local system: 
 1. Clone the repository.
 2. Install the dependecies from the `requirements.txt` file. To install the dependecies run the below command.
-  ```python 
+    ```python
     pip install -r requirements.txt
-   ```
-3. Run the below command. 
-  ```python
-  streamlit run spotify.py
-  ```
+     ```
+3. Run the below command to activate the application.
+    ```python
+    streamlit run spotify.py
+    ```
 
 
 ## Dashboard (Streamlit App)
