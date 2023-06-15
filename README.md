@@ -4,6 +4,17 @@ Problem Statemnet: Predict if users will skip or listen to the music they're str
 
 <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/anidec25/Spotify-Skip-Prediction"> <img alt="GitHub watchers" src="https://img.shields.io/github/watchers/anidec25/Spotify-Skip-Prediction"> <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/anidec25/Spotify-Skip-Prediction"> <img alt="GitHub forks" src="https://img.shields.io/github/forks/anidec25/Spotify-Skip-Prediction"> 
 
+## Steps to run the script in your local system: 
+1. Clone the repository.
+2. Install the dependecies from the `requirements.txt` file. To install the dependecies run the below command.
+  ```python 
+    pip install -r requirements.txt
+   ```
+3. Run the below command. 
+  ```python
+  streamlit run spotify.py
+  ```
+
 
 ## Dashboard (Streamlit App)
 #### Link: https://anidec25-spotify-skip-prediction-spotify-2xr81h.streamlit.app/
