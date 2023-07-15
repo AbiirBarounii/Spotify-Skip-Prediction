@@ -17,7 +17,7 @@ Problem Statemnet: Predict if users will skip or listen to the music they're str
 
 
 ## Dashboard (Streamlit App)
-#### Link: https://anidec25-spotify-skip-prediction-spotify-2xr81h.streamlit.app/
+#### Link: https://spotify-skip-prediction.streamlit.app/
 ![alt text](./images/finalview_receipt.png)
 
 ## Overview
